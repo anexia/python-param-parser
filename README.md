@@ -68,13 +68,10 @@ result[0].sequence_value  # Gets `"this-is-a-{param:string:option1,option2,optio
 
 # Supported versions
 
-|             | Supported |
-|-------------|-----------|
-| Python 3.7  | ✓         |
-| Python 3.8  | ✓         |
-| Python 3.9  | ✓         |
-| Python 3.10 | ✓         |
-| Python 3.11 | ✓         |
+| This Project | Python Version |
+|--------------|----------------|
+| 1.1.*        | 3.9-3.13       |
+| 1.0.*        | 3.7-3.11       |
 
 # List of developers
 
