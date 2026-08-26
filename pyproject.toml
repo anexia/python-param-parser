@@ -49,3 +49,9 @@ where = ["."]
 include = ["param_parser*"]
 
 [tool.setuptools_scm]
+
+[tool.ruff.lint.per-file-ignores]
+# Package __init__ files re-export the public API with `from .module import *`;
+# every submodule defines __all__, so the surface is explicit even though ruff
+# cannot resolve it across modules.
+"param_parser/__init__.py" = ["F403", "F405"]

@@ -5,7 +5,7 @@ param-parser
 [![Test Status](https://github.com/anexia/python-param-parser/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/anexia/python-param-parser/actions/workflows/test.yml)
 [![Codecov](https://codecov.io/gh/anexia/python-param-parser/branch/main/graph/badge.svg)](https://codecov.io/gh/anexia/python-param-parser)
 
-`param-parser` is a parser library for a param string expression. Those expressions are arbitrary strings  with 
+`param-parser` is a parser library for a param string expression. Those expressions are arbitrary strings  with
 placeholders in it, where a placeholder consists of a name, an optional type and a list of options.
 
 # Installation
@@ -32,8 +32,8 @@ this-is-a-{param:string}-expression
 this-is-a-{param}-expression
 ```
 
-As you see, a param is introduced by an opening curly bracket, followed by the name of the param, a colon, the type of 
-the param, another colon and a comma separated list of options. The param configuration gets terminated by a closing 
+As you see, a param is introduced by an opening curly bracket, followed by the name of the param, a colon, the type of
+the param, another colon and a comma separated list of options. The param configuration gets terminated by a closing
 curly bracket. Note that the type and option configuration are optional, but the name is mandatory.
 
 To parse an expression shown above, use the Python code as follows:
@@ -70,6 +70,7 @@ result[0].sequence_value  # Gets `"this-is-a-{param:string:option1,option2,optio
 
 | This Project | Python Version |
 |--------------|----------------|
+| 1.2.*        | 3.10-3.14      |
 | 1.1.*        | 3.9-3.13       |
 | 1.0.*        | 3.7-3.11       |
 

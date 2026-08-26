@@ -27,7 +27,7 @@ def test_single_param_node():
     assert isinstance(result[0], param_parser.ParamNode)
 
     assert result[0].param_name == "this_is_a_test"
-    assert result[0].param_type == None
+    assert result[0].param_type is None
     assert result[0].param_options == []
 
 
@@ -43,7 +43,7 @@ def test_untyped_param_node_1():
     assert result[0].sequence_value == "this/"
 
     assert result[1].param_name == "is"
-    assert result[1].param_type == None
+    assert result[1].param_type is None
     assert result[1].param_options == []
 
     assert result[2].sequence_value == "/a/test"
@@ -61,7 +61,7 @@ def test_untyped_param_node_2():
     assert result[0].sequence_value == "this/"
 
     assert result[1].param_name == "is"
-    assert result[1].param_type == None
+    assert result[1].param_type is None
     assert result[1].param_options == []
 
     assert result[2].sequence_value == "/a/test"
@@ -161,7 +161,7 @@ def test_untyped_param_node_with_escaped_colon_1():
     assert result[0].sequence_value == "this/"
 
     assert result[1].param_name == ":"
-    assert result[1].param_type == None
+    assert result[1].param_type is None
     assert result[1].param_options == []
 
     assert result[2].sequence_value == "/a/test"
@@ -179,7 +179,7 @@ def test_untyped_param_node_with_escaped_colon_2():
     assert result[0].sequence_value == "this/"
 
     assert result[1].param_name == ":"
-    assert result[1].param_type == None
+    assert result[1].param_type is None
     assert result[1].param_options == []
 
     assert result[2].sequence_value == "/a/test"
@@ -289,25 +289,25 @@ def test_multiple_untyped_param_nodes():
     assert isinstance(result[6], param_parser.ParamNode)
 
     assert result[0].param_name == "this"
-    assert result[0].param_type == None
+    assert result[0].param_type is None
     assert result[0].param_options == []
 
     assert result[1].sequence_value == "/"
 
     assert result[2].param_name == "is"
-    assert result[2].param_type == None
+    assert result[2].param_type is None
     assert result[2].param_options == []
 
     assert result[3].sequence_value == "/"
 
     assert result[4].param_name == "a"
-    assert result[4].param_type == None
+    assert result[4].param_type is None
     assert result[4].param_options == []
 
     assert result[5].sequence_value == "/"
 
     assert result[6].param_name == "test"
-    assert result[6].param_type == None
+    assert result[6].param_type is None
     assert result[6].param_options == []
 
 

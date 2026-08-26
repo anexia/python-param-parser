@@ -1,5 +1,4 @@
 import abc
-import typing
 
 
 __all__ = [
@@ -16,9 +15,7 @@ class Node(abc.ABC):
     """
 
     def __repr__(self) -> str:
-        return "{}()".format(
-            self.__class__.__name__,
-        )
+        return f"{self.__class__.__name__}()"
 
 
 class ParamNode(Node):
@@ -30,8 +27,8 @@ class ParamNode(Node):
     def __init__(
         self,
         param_name: str,
-        param_type: typing.Optional[str],
-        param_options: typing.Optional[list],
+        param_type: str | None,
+        param_options: list | None,
     ):
         """
         Init method for the class.
@@ -41,8 +38,8 @@ class ParamNode(Node):
         :param param_options: The list of options of the param. Becomes an empty list if passed :data:`None`.
         """
         self._param_name: str = param_name
-        self._param_type: typing.Optional[str] = param_type or None
-        self._param_options: typing.List[str] = param_options or []
+        self._param_type: str | None = param_type or None
+        self._param_options: list[str] = param_options or []
 
     @property
     def param_name(self) -> str:
@@ -54,7 +51,7 @@ class ParamNode(Node):
         return self._param_name
 
     @property
-    def param_type(self) -> typing.Optional[str]:
+    def param_type(self) -> str | None:
         """
         Gets the type of the param.
 
@@ -63,7 +60,7 @@ class ParamNode(Node):
         return self._param_type
 
     @property
-    def param_options(self) -> typing.List[str]:
+    def param_options(self) -> list[str]:
         """
         Gets the list of options of the param. Each option is a string.
 
@@ -72,12 +69,7 @@ class ParamNode(Node):
         return self._param_options
 
     def __repr__(self) -> str:
-        return "{}({}, {}, {})".format(
-            self.__class__.__name__,
-            repr(self._param_name),
-            repr(self._param_type),
-            repr(self._param_options),
-        )
+        return f"{self.__class__.__name__}({repr(self._param_name)}, {repr(self._param_type)}, {repr(self._param_options)})"
 
 
 class SequenceNode(Node):
@@ -103,7 +95,4 @@ class SequenceNode(Node):
         return self._sequence_value
 
     def __repr__(self) -> str:
-        return "{}({})".format(
-            self.__class__.__name__,
-            repr(self._sequence_value),
-        )
+        return f"{self.__class__.__name__}({repr(self._sequence_value)})"

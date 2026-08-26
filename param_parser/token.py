@@ -1,6 +1,3 @@
-import typing
-
-
 __all__ = [
     "Token",
 ]
@@ -23,8 +20,8 @@ class Token:
         self,
         token_position: int,
         token_type: str,
-        token_value: typing.Optional[str],
-        token_raw_value: typing.Optional[str],
+        token_value: str | None,
+        token_raw_value: str | None,
     ):
         """
         Init method for the class.
@@ -58,7 +55,7 @@ class Token:
         return self._token_type
 
     @property
-    def token_value(self) -> typing.Optional[str]:
+    def token_value(self) -> str | None:
         """
         Gets the value of the token without the escape characters. `'EOF'` tokens have a :data:`None` value.
 
@@ -67,7 +64,7 @@ class Token:
         return self._token_value
 
     @property
-    def token_raw_value(self) -> typing.Optional[str]:
+    def token_raw_value(self) -> str | None:
         """
         Gets the raw value of the token without the escape characters. `'EOF'` tokens have a :data:`None` value.
 
@@ -76,10 +73,4 @@ class Token:
         return self._token_raw_value
 
     def __repr__(self) -> str:
-        return "{}({}, {}, {}, {})".format(
-            self.__class__.__name__,
-            repr(self._token_position),
-            repr(self._token_type),
-            repr(self._token_value),
-            repr(self._token_raw_value),
-        )
+        return f"{self.__class__.__name__}({repr(self._token_position)}, {repr(self._token_type)}, {repr(self._token_value)}, {repr(self._token_raw_value)})"

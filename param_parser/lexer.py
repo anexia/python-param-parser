@@ -1,7 +1,6 @@
 import abc
-import typing
 
-from .token import *
+from .token import Token
 
 
 __all__ = [
@@ -39,7 +38,7 @@ class Lexer(abc.ABC):
         pass
 
     @property
-    def current_character(self) -> typing.Optional[str]:
+    def current_character(self) -> str | None:
         """
         Gets the current character the position pointer points to on the expression. If the position
         pointer exceeds the length of the expression, :data:`None` gets returned.
@@ -68,7 +67,10 @@ class Lexer(abc.ABC):
         :return: The produced token instance.
         """
         token = Token(
-            self._position, token_type, self.current_character, self.current_character
+            self._position,
+            token_type,
+            self.current_character,
+            self.current_character,
         )
         self.advance()
 
@@ -102,10 +104,7 @@ class Lexer(abc.ABC):
         return Token(position, token_type, sequence, raw_sequence)
 
     def __repr__(self) -> str:
-        return "{}({})".format(
-            self.__class__.__name__,
-            repr(self._expression),
-        )
+        return f"{self.__class__.__name__}({repr(self._expression)})"
 
 
 class ParamLexer(Lexer):
