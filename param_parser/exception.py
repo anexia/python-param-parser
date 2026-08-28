@@ -14,7 +14,4 @@ class ParserSyntaxException(Exception):
         super().__init__(self._message)
 
     def __repr__(self) -> str:
-        return "{}({})".format(
-            self.__class__.__name__,
-            repr(self._message),
-        )
+        return f"{self.__class__.__name__}({repr(self._message)})"
